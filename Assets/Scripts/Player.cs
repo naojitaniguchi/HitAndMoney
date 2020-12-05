@@ -55,13 +55,15 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             Punch(Vector3.right * -1.0f);
-            Instantiate(effectLeft, gameObject.transform.position, Quaternion.identity);
+            GameObject effectObj = Instantiate(effectLeft, gameObject.transform.position, Quaternion.identity);
+            effectObj.transform.parent = gameObject.transform;
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
             Punch(Vector3.right );
-            Instantiate(effectRight, gameObject.transform.position, Quaternion.identity);
+            GameObject effectObj = Instantiate(effectRight, gameObject.transform.position, Quaternion.identity);
+            effectObj.transform.parent = gameObject.transform;
         }
 
         if (Input.GetKeyDown(KeyCode.W))
