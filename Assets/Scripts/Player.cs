@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public float speed = 5.0f;
     public GameObject item;
     public GameObject punch;
+    public GameObject effectRight;
+    public GameObject effectLeft;
     Rigidbody rb;
     public int money = 0;
     public GameObject textMoneyCount;
@@ -53,11 +55,13 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             Punch(Vector3.right * -1.0f);
+            Instantiate(effectLeft, gameObject.transform.position, Quaternion.identity);
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
             Punch(Vector3.right );
+            Instantiate(effectRight, gameObject.transform.position, Quaternion.identity);
         }
 
         if (Input.GetKeyDown(KeyCode.W))
